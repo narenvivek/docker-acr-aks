@@ -1,1 +1,16 @@
-{}
+{
+    "name": "nodejs-backend",
+    "version": "1.0.0",
+    "description": "Hostname display",
+    "author": "N Ramakrishna",
+    "license": "MIT",
+    "main": "app.js",
+    "keywords": [
+        "nodejs",
+        "bootstrap",
+        "express"
+    ],
+    "dependencies": {
+        "express": "^4.16.4"
+    }
+}
