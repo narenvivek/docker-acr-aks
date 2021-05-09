@@ -53,6 +53,9 @@ curl localhost:8080
 My Hostname: xyz.local 
 ```
 ### Build: Image
+
+If you are a Mac that is Apple Silicon based, although the build steps below succeed, it will **fail** when it is deployed on the cluster. Please follow instructions in this [link](https://blog.jaimyn.dev/how-to-build-multi-architecture-docker-images-on-an-m1-mac/) to build and deploy multi-architecture (x86/x64) images. Specifically, you might need to use an additional parameter `--platform linux/amd64` to deploy to ACI and AKS.
+
 ```
 docker build . -t nodejs-backend
 ```
