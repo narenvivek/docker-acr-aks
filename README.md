@@ -64,7 +64,7 @@ Test it with a browser 'http://localhost:8080' this should show you the Docker i
 
 Tag newly built image (tagging is necessary to push to ACR)
 ```
-docker tag nodejs-backend simpleregrepo.azurecr.io/nodejs-backend:v1
+docker tag nodejs-backend <your ACR>.azurecr.io/nodejs-backend:v1
 ```
 
 Check whether the tag and version is applied correctly
@@ -73,12 +73,12 @@ docker image ls
 
 REPOSITORY                                TAG       IMAGE ID       CREATED          SIZE
 backend-nodejs                            latest    f3d40fee7064   14 minutes ago   113MB
-simpleregrepo.azurecr.io/backend-nodejs   v1        f3d40fee7064   14 minutes ago   113MB
+<your ACR>.azurecr.io/backend-nodejs   v1        f3d40fee7064   14 minutes ago   113MB
 ```
 
 Login to the repo
 ```
-az acr login -n simpleregrepo
+az acr login -n <your ACR>
 The login server endpoint suffix '.azurecr.io' is automatically omitted.
 Login Succeeded
 ```
@@ -86,9 +86,9 @@ Login Succeeded
 Finally, push the image
 
 ```
-docker push simpleregrepo.azurecr.io/nodejs-backend:v1
+docker push <your ACR>.azurecr.io/nodejs-backend:v1
 
-The push refers to repository [simpleregrepo.azurecr.io/nodejs-backend]
+The push refers to repository [<your ACR>.azurecr.io/nodejs-backend]
 30ee6fdf1f50: Pushed
 c2f5568d2d7d: Pushed
 ceb29479d452: Pushed
@@ -142,11 +142,11 @@ docker build -t ngnix-frontend .
 
 Tag newly built image (tagging is necessary to push to ACR)
 ```
-docker tag ngnix-frontend simpleregrepo.azurecr.io/ngnix-frontend:v1
+docker tag ngnix-frontend <your ACR>.azurecr.io/ngnix-frontend:v1
 ```
 Login to the repo
 ```
-az acr login -n simpleregrepo
+az acr login -n <your ACR>
 The login server endpoint suffix '.azurecr.io' is automatically omitted.
 Login Succeeded
 ```
@@ -154,7 +154,7 @@ Login Succeeded
 Finally, push the image
 
 ```
-docker push simpleregrepo.azurecr.io/ngnix-frontend:v1
+docker push <your ACR>.azurecr.io/ngnix-frontend:v1
 ```
 
 # Kubernetes (AKS)
@@ -215,7 +215,7 @@ Also, this step expects that you have added a new AKS cluster (aks01) within an 
 Using the nodejs-backend image that you had uploaded in the previous section using `docker push` command, create a K8s Deployment. Please ensure that the correct version of the image is used (if you have anything different to v1).
 
 ```
-kubectl create deployment my-backend-rest-app --image=simpleregrepo.azurecr.io/nodejs-backend:v1
+kubectl create deployment my-backend-rest-app --image=<your ACR>.azurecr.io/nodejs-backend:v1
 ```
 
 This will create the following:
@@ -262,7 +262,7 @@ Please observe the **bolded** text in the command. The name should be kept the s
 ### Deploy frontend image to the cluster
 Please ensure you are using the correct version of the image.
 
-`kubectl create deployment my-frontend-nginx-app --image=simpleregrepo.azurecr.io/ngnix-frontend:v1`
+`kubectl create deployment my-frontend-nginx-app --image=<your ACR>.azurecr.io/ngnix-frontend:v1`
 
 ### Deploy the LoadBalancer type service
 
@@ -283,12 +283,12 @@ service/my-backend-service    ClusterIP      10.0.0.66     <none>         8080/T
 service/my-frontend-service   LoadBalancer   10.0.63.102   20.65.28.210   80:30510/TCP   50m   app=my-frontend-nginx-app
 
 NAME                                    READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS       IMAGES                                       SELECTOR
-deployment.apps/my-backend-rest-app     1/1     1            1           54m   nodejs-backend   simpleregrepo.azurecr.io/nodejs-backend:v4   app=my-backend-rest-app
-deployment.apps/my-frontend-nginx-app   1/1     1            1           36m   ngnix-frontend   simpleregrepo.azurecr.io/ngnix-frontend:v6   app=my-frontend-nginx-app        
+deployment.apps/my-backend-rest-app     1/1     1            1           54m   nodejs-backend   <your ACR>.azurecr.io/nodejs-backend:v4   app=my-backend-rest-app
+deployment.apps/my-frontend-nginx-app   1/1     1            1           36m   ngnix-frontend   <your ACR>.azurecr.io/ngnix-frontend:v6   app=my-frontend-nginx-app        
 
 NAME                                               DESIRED   CURRENT   READY   AGE   CONTAINERS       IMAGES                                       SELECTOR
-replicaset.apps/my-backend-rest-app-8bc95d9b7      1         1         1       54m   nodejs-backend   simpleregrepo.azurecr.io/nodejs-backend:v4   app=my-backend-rest-app,pod-template-hash=8bc95d9b7
-replicaset.apps/my-frontend-nginx-app-7dcbd5cb85   1         1         1       36m   ngnix-frontend   simpleregrepo.azurecr.io/ngnix-frontend:v6   app=my-frontend-nginx-app,pod-template-hash=7dcbd5cb85
+replicaset.apps/my-backend-rest-app-8bc95d9b7      1         1         1       54m   nodejs-backend   <your ACR>.azurecr.io/nodejs-backend:v4   app=my-backend-rest-app,pod-template-hash=8bc95d9b7
+replicaset.apps/my-frontend-nginx-app-7dcbd5cb85   1         1         1       36m   ngnix-frontend   <your ACR>.azurecr.io/ngnix-frontend:v6   app=my-frontend-nginx-app,pod-template-hash=7dcbd5cb85
 ```
 ### Try accessing the service using `curl`
 
