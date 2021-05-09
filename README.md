@@ -18,6 +18,9 @@ Internet > Cluster > Internal LB (service) > [Frontend] NGINX Reverse Proxy (Dep
 Pull the image using the Dockerfile below. This is just a plain-vanilla Node.js image
 
 ### Pull: Dockerfile
+
+Cut-and-paste following text into a `Dockerfile`. The actual pull will happen during `docker build`.
+
 ```
 FROM node:10-alpine
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
@@ -107,6 +110,9 @@ If you just want to test this, use Azure Container Instances (ACI) and create a 
 Frontend of our applications uses NGINX reverse proxy with a simple configuration file that redirects traffic to the backend.
 
 ### Pull: Dockerfile
+
+Cut-and-paste following text into a `Dockerfile`. The actual pull will happen during `docker build`.
+
 ```
 FROM nginx:latest
 COPY default.conf /etc/nginx/conf.d
