@@ -300,10 +300,10 @@ My Hostname: my-backend-rest-app-8bc95d9b7-z2l7c
 ## Scale-up the cluster
 Spin-up 10 backend pods expanding the replicaset
 
-```
+
 `kubectl scale --replicas=10 deployment/my-backend-rest-app`
-deployment.apps/my-backend-rest-app scaled
-```
+`deployment.apps/my-backend-rest-app scaled`
+
 You should see this reflected in `kubectl get all`
 
 ```
