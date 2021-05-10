@@ -16,7 +16,7 @@ spec:
     spec:
       containers: # List
       - name: nginx-frontend
-        image: simpleregrepo.azurecr.io/ngnix-frontend:v6
+        image: youracr.azurecr.io/ngnix-frontend:v6
         resources:
           limits:
             memory: "128Mi"

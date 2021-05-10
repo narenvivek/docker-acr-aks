@@ -16,7 +16,7 @@ spec:
     spec:
       containers: # List
       - name: nodejs-backend
-        image: simpleregrepo.azurecr.io/nodejs-backend:v4
+        image: youracr.azurecr.io/nodejs-backend:v4
         resources:
           limits:
             memory: "128Mi"

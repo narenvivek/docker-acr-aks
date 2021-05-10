@@ -343,6 +343,8 @@ My Hostname: my-backend-rest-app-8bc95d9b7-87gsn
 ## Create cluster using YAML manifests
 ** Make sure the labels map correctly. You will spend considerable time debugging if you get it wrong. **
 
+Please make sure `image` link is updated with correct Azure Container Registry link. You might just need to change `youracr` in `youracr.azurecr.io`
+
 ### Pod and Service
 Either individual manifest files or just the directory could be suppled as the parameter for deployment. We shall use the directory name in all the examples below.
 
