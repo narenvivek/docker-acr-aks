@@ -1,0 +1,13 @@
+# this is the same as kubectl expose
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-backend-service
+spec:
+  # type: ClusterIP
+  selector:
+    app: nodejs-backend
+  ports:
+  - name: http
+    port: 8080 # Service port
+    targetPort: 8080 # Container Port

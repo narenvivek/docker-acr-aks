@@ -339,3 +339,23 @@ My Hostname: my-backend-rest-app-8bc95d9b7-kq9sk
 curl http://20.65.28.210
 My Hostname: my-backend-rest-app-8bc95d9b7-87gsn
 ```
+
+## Create cluster using YAML manifests
+** Make sure the labels map correctly. You will spend considerable time debugging if you get it wrong. **
+
+### Pod and Service
+Either individual manifest files or just the directory could be suppled as the parameter for deployment. We shall use the directory name in all the examples below.
+
+`kubectl apply -f kube-manifests-pod`
+
+### Replicaset and Service
+
+`kubectl apply -f kube-manifests-replicaset`
+
+### Deployment and Service
+
+`kubectl apply -f kube-manifests-deploy`
+
+### Frontend - Backend full deployment
+
+`kubectl apply -f kube-manifests-febe`

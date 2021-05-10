@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-backend-deployment
+spec:
+  replicas: 6
+  selector:
+    matchLabels: 
+      app: nodejs-backend
+
+  template: # Pod template - cut & paste from 01-pod-definition.yaml from kube-manifests pod (from )
+    metadata: # Dictionary
+      name: nodejs-backend-pod
+      labels: # Dictionary
+        app: nodejs-backend
+    spec:
+      containers: # List
+      - name: nodejs-backend
+        image: simpleregrepo.azurecr.io/nodejs-backend:v4
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 8080
