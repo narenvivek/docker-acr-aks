@@ -11,6 +11,8 @@
 
 Internet > Cluster > Internal LB (service) > [Frontend] NGINX Reverse Proxy (Deployment) > ClusterIP (service) > [Backend] Hostname Display
 
+![](docker-acr-aks.png)
+
 # Docker
 
 ## Backend: Pull, Change, Build and Push
