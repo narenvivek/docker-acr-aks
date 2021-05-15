@@ -9,9 +9,12 @@
 
 # Architecture
 
-Internet > Cluster > Internal LB (service) > [Frontend] NGINX Reverse Proxy (Deployment) > ClusterIP (service) > [Backend] Hostname Display
-
 ![](docker-acr-aks.png)
+
+* Azure Load Balancer with external public IP assigned is Internet facing. Backend of Azure Load Balancer is the service connecting to the cluster
+* Kube service of type 'LoadBalancer' establishes rules for the access (in this case a port 80 access)
+* Node JS is used as the backend technology and NGINX proxy is the front end
+* The hierarchy used below is - pod, replicaset and deployment
 
 # Docker
 
