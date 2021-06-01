@@ -366,3 +366,25 @@ Either individual manifest files or just the directory could be suppled as the p
 ### Frontend - Backend full deployment
 
 `kubectl apply -f kube-manifests-febe`
+
+To change number of replica pods, change the deployment manifest and run the command again. Note that `kubectl apply` command is idompotent - it will only change the cluster if the manifest has any changes.
+To test, use `curl <Load Balancer External IP address>` similar to previous steps.
+
+## Clean-up
+
+### Pod and Service
+
+`kubectl delete -f kube-manifests-pod`
+
+### Replicaset and Service
+
+`kubectl delete -f kube-manifests-replicaset`
+
+### Deployment and Service
+
+`kubectl delete -f kube-manifests-deploy`
+
+### Frontend - Backend full deployment
+
+`kubectl delete -f kube-manifests-febe`
+
