@@ -24,6 +24,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'docker-srvconnection'
-        repository: 'dockerrepo'
+        repository: 'narenvivek/dockerrepo'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/backend/Dockerfile'
+
