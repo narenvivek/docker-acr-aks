@@ -15,4 +15,7 @@ steps:
       action: 'deploy'
       kubernetesServiceConnection: 'aks-kube-default'
       namespace: 'default'
-      manifests: '$(Build.SourcesDirectory)/03-kube-manifests-deploy/'
+      manifests: |
+        '$(Build.SourcesDirectory)/03-kube-manifests-deploy/01-deploy-definition.yaml'
+        '$(Build.SourcesDirectory)/03-kube-manifests-deploy/02-service-definition.yaml'
+      containers: https://hub.docker.com/r/narenvivek/dockerrepo:4
