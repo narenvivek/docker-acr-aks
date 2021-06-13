@@ -17,7 +17,7 @@ spec:
     spec:
       containers: # List
       - name: nodejs-backend
-        image: youracr.azurecr.io/nodejs-backend:v4
+        image: narenvivek/dockerrepo:4
         resources:
           limits:
             memory: "128Mi"
