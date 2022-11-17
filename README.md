@@ -4,7 +4,7 @@
 
 1. To setup Docker images for frontend NGINX proxy and a simple Node.js backend application
 2. To push Docker images to Azure Container Registry [assumes you have setup one]
-3. To use imperative semantics of Kubernetes [K8s] to deploy a cluster
+3. To use imperative semantics of Kubernetes [K8s] to deploy an application
 4. To attempt to scale-up and scale down the cluster
 
 # Architecture
